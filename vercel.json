@@ -18,7 +18,7 @@
         "destination": "/index.html"
       },
       {
-        "source": "https://catalystsoflo.com/packages.html",
+        "source": "/packages.html",
         "destination": "/packages"
       }
     ]
