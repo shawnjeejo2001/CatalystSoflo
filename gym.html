@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oye Hialeah Fitness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A1A;
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Header -->
+    <header class="bg-[#1A1A1A]/80 backdrop-blur-sm fixed w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-3xl font-black text-white uppercase">Oye Hialeah Fitness</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="hover:text-[#DC2626] transition-colors">Features</a>
+                    <a href="#classes" class="hover:text-[#DC2626] transition-colors">Classes</a>
+                    <a href="#pricing" class="hover:text-[#DC2626] transition-colors">Pricing</a>
+                    <a href="#contact" class="hover:text-[#DC2626] transition-colors">Contact</a>
+                    <a href="#" class="bg-[#DC2626] text-white font-bold py-2 px-6 rounded-lg hover:bg-[#B91C1C] transition-all">Join Now</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#1A1A1A]">
+            <a href="#features" class="block py-2 px-4 text-sm hover:bg-gray-700">Features</a>
+            <a href="#classes" class="block py-2 px-4 text-sm hover:bg-gray-700">Classes</a>
+            <a href="#pricing" class="block py-2 px-4 text-sm hover:bg-gray-700">Pricing</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
+            <a href="#" class="block py-2 px-4 text-sm bg-[#DC2626] text-white font-bold hover:bg-[#B91C1C]">Join Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center">
+        <!-- Make sure your video file is in the 'assets' folder -->
+        <video autoplay muted loop class="hero-video">
+            
+            <source src="assets/GymVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay absolute top-0 left-0 w-full h-full"></div>
+        <div class="relative z-10 px-4">
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-wider">Unleash Your Potential</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">Join the most energetic and supportive fitness community in Hialeah. Your journey to a stronger you starts here.</p>
+            <a href="#" class="mt-8 inline-block bg-[#DC2626] text-white font-bold py-4 px-10 rounded-lg text-lg uppercase hover:bg-[#B91C1C] transition-all">Start Your Free Trial</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black text-white mb-2">Our Gym is Your Gym</h2>
+            <p class="text-gray-400 text-lg mb-12">Designed around you, we think you'll love it here.</p>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-[#DC2626] mb-4">Positivity</h3>
+                    <p class="text-gray-300">We seek to encourage, entertain, and empower. Our community is built on positive vibes only.</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-[#DC2626] mb-4">Inclusivity</h3>
+                    <p class="text-gray-300">Here we keep open minds. There is no one type or way in our diverse community. Come as you are!</p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-[#DC2626] mb-4">Fun</h3>
+                    <p class="text-gray-300">Serious fitness is hard, but that doesn't mean it can't be an edge-of-your-seat party.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-black text-white text-center mb-12">Check Out Our Group Fitness Classes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Class Item -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                    <!-- IMPORTANT: Replace 'cycling.jpg' with your image file in the 'assets' folder -->
+                    <img src="assets/cycling.jpg" alt="Cycling Class" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[#DC2626] mb-2">Cycling</h3>
+                        <p class="text-gray-300">Get in the saddle, gear up and channel your inner cyclist in this high-energy cardio workout.</p>
+                    </div>
+                </div>
+                <!-- Class Item -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                     <!-- IMPORTANT: Replace 'strength.jpg' with your image file in the 'assets' folder -->
+                    <img src="assets/strength.jpg" alt="Strength Training" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[#DC2626] mb-2">Strength Training</h3>
+                        <p class="text-gray-300">Build strength, add definition, and get toned with this challenging and fun weights class.</p>
+                    </div>
+                </div>
+                <!-- Class Item -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden group">
+                     <!-- IMPORTANT: Replace 'yoga.jpg' with your image file in the 'assets' folder -->
+                    <img src="assets/yoga.jpg" alt="Yoga Class" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[#DC2626] mb-2">Yoga</h3>
+                        <p class="text-gray-300">Flow, strengthen, and stretch. Center your energy and find your zen in our yoga and pilates classes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black text-white mb-12">Membership Plans</h2>
+            <div class="grid lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Pricing Tier -->
+                <div class="bg-gray-800 p-8 rounded-lg border-2 border-transparent hover:border-[#DC2626] transition-all">
+                    <h3 class="text-2xl font-bold mb-4">Basic</h3>
+                    <p class="text-4xl font-black text-[#DC2626] mb-4">$29<span class="text-lg text-gray-400">/mo</span></p>
+                    <ul class="text-left space-y-2 text-gray-300 mb-8">
+                        <li>✅ Access to all gym equipment</li>
+                        <li>✅ Locker rooms with showers</li>
+                        <li>❌ Group fitness classes</li>
+                        <li>❌ Personal training sessions</li>
+                    </ul>
+                    <a href="#" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-600 transition-all w-full block">Choose Plan</a>
+                </div>
+                <!-- Pricing Tier (Featured) -->
+                <div class="bg-gray-800 p-8 rounded-lg border-2 border-[#DC2626] transform lg:scale-105">
+                     <p class="bg-[#DC2626] text-white font-bold text-sm py-1 px-4 rounded-full uppercase inline-block mb-4">Most Popular</p>
+                    <h3 class="text-2xl font-bold mb-4">Premium</h3>
+                    <p class="text-4xl font-black text-[#DC2626] mb-4">$49<span class="text-lg text-gray-400">/mo</span></p>
+                    <ul class="text-left space-y-2 text-gray-300 mb-8">
+                        <li>✅ Access to all gym equipment</li>
+                        <li>✅ Locker rooms with showers</li>
+                        <li>✅ Unlimited group fitness classes</li>
+                        <li>❌ Personal training sessions</li>
+                    </ul>
+                     <a href="#" class="bg-[#DC2626] text-white font-bold py-3 px-8 rounded-lg hover:bg-[#B91C1C] transition-all w-full block">Choose Plan</a>
+                </div>
+                <!-- Pricing Tier -->
+                <div class="bg-gray-800 p-8 rounded-lg border-2 border-transparent hover:border-[#DC2626] transition-all">
+                    <h3 class="text-2xl font-bold mb-4">VIP</h3>
+                    <p class="text-4xl font-black text-[#DC2626] mb-4">$99<span class="text-lg text-gray-400">/mo</span></p>
+                    <ul class="text-left space-y-2 text-gray-300 mb-8">
+                        <li>✅ Access to all gym equipment</li>
+                        <li>✅ Locker rooms with showers</li>
+                        <li>✅ Unlimited group fitness classes</li>
+                        <li>✅ 4 personal training sessions/mo</li>
+                    </ul>
+                     <a href="#" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-600 transition-all w-full block">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-black text-white mb-4">Get In Touch</h2>
+                    <p class="text-gray-400 mb-8">Have questions? Want to tour the facility? Drop us a line or visit us. We're located in the heart of Hialeah.</p>
+                    <p class="text-gray-300 mb-2"><strong class="text-[#DC2626]">Address:</strong> 123 Fitness Ave, Hialeah, FL 33012</p>
+                    <p class="text-gray-300 mb-2"><strong class="text-[#DC2626]">Phone:</strong> (305) 123-4567</p>
+                    <p class="text-gray-300"><strong class="text-[#DC2626]">Email:</strong> info@oyehialeah.fitness</p>
+                </div>
+                <div>
+                    <form class="bg-gray-800 p-8 rounded-lg">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[#DC2626] text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[#DC2626] text-white">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[#DC2626] text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#DC2626] text-white font-bold py-3 rounded-lg hover:bg-[#B91C1C] transition-all">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 Oye Hialeah Fitness. All Rights Reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-[#DC2626]">Facebook</a>
+                <a href="#" class="hover:text-[#DC2626]">Instagram</a>
+                <a href="#" class="hover:text-[#DC2626]">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+
+</body>
+</html>
