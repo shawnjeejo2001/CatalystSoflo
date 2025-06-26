@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags (SEO) -->
+    <title>Website Packages | Catalyst SoFlo | South Florida Web Design</title>
+    <meta name="description" content="Explore our web design packages. We offer custom solutions for new businesses, established companies seeking growth, and dynamic e-commerce functionality.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>CS</text></svg>">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* ---
+        Design System & Variables
+        --- */
+        :root {
+            --color-primary: #0A2540;      /* Deep Twilight Blue */
+            --color-background: #F0F2F5;  /* Sterling Silver */
+            --color-accent: #00C49A;       /* Electric Teal */
+            --color-text: #1D1D1F;         /* Off-Black */
+            --color-text-light: #ffffff;
+            --color-text-subtle: #525f7f;
+            --color-border: #e6e6e6;
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Lato', sans-serif;
+
+            --container-width: 1140px;
+            --container-padding: 24px;
+            --section-padding: 96px;
+
+            --border-radius: 8px;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+
+        /* ---
+        Global Styles & Resets
+        --- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            -webkit-font-smoothing: antialiased;
+        }
+        body.nav-open {
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+
+        section {
+            padding-top: var(--section-padding);
+            padding-bottom: var(--section-padding);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--color-text-subtle);
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .text-center { text-align: center; }
+        .subtitle {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--color-text-subtle);
+        }
+
+        /* ---
+        Header & Navigation
+        --- */
+        .main-header {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            z-index: 1001;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+        
+        .desktop-nav {
+            display: none;
+        }
+
+        @media (min-width: 850px) {
+            .desktop-nav {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--color-text);
+            font-weight: 700;
+            padding: 0.5rem 0;
+        }
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .cta-button-header {
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        .cta-button-header:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-primary);
+            z-index: 1001;
+        }
+        @media (min-width: 850px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+
+        .mobile-nav {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .main-header.nav-open .mobile-nav {
+            display: flex;
+        }
+        .mobile-nav .nav-links {
+            flex-direction: column;
+            gap: 1.5rem;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+        .mobile-nav .header-actions {
+             display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            width: 80%;
+        }
+         .mobile-nav .cta-button-header, .mobile-nav .cta-button-secondary-header {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+        }
+         .mobile-nav .cta-button-secondary-header {
+            color: var(--color-accent);
+            border: 2px solid var(--color-border);
+        }
+        
+        /* ---
+        Buttons & Links
+        --- */
+        .cta-button-primary {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+        .cta-button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* ---
+        Packages Section
+        --- */
+        .packages-section {
+            background-color: var(--color-background);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            align-items: stretch; /* Make cards same height */
+        }
+        .pricing-card {
+            background-color: #ffffff;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: 2px solid var(--color-border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .pricing-card.popular {
+            border-color: var(--color-accent);
+            transform: scale(1.05);
+            position: relative;
+        }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .pricing-card h3 {
+            font-size: 1.75rem;
+        }
+        .pricing-card .best-for {
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 2rem;
+            min-height: 40px;
+        }
+        .features-list {
+            margin-top: 1rem;
+            flex-grow: 1;
+        }
+        .features-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        .features-list li i {
+            color: var(--color-accent);
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        .pricing-card .cta-button-primary {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        /* ---
+        Footer
+        --- */
+        .main-footer {
+            background-color: var(--color-primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-col h4 {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .footer-col a:hover {
+            color: var(--color-text-light);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* ---
+        Responsive Styles
+        --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .mobile-nav {
+                display: none; /* Hidden by default */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem;
+            }
+            .main-header.nav-open .mobile-nav {
+                display: flex;
+            }
+            .mobile-nav .nav-links {
+                flex-direction: column;
+                gap: 1.5rem;
+                font-size: 1.25rem;
+                text-align: center;
+            }
+            .mobile-nav .header-actions {
+                 display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                width: 80%;
+            }
+             .mobile-nav .cta-button-header, .mobile-nav .cta-button-secondary-header {
+                width: 100%;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            h1 { font-size: 2.2rem; }
+            section {
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="main-header" class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Catalyst <span>SoFlo</span></a>
+            
+            <nav class="desktop-nav">
+                <ul class="nav-links" style="display: flex; gap: 1rem; margin-left: auto;">
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#process">Process</a>
+                    <a href="index.html#work">Work</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#contact">Contact</a>
+                </ul>
+                <div class="header-actions">
+                     <a href="index.html#contact" class="cta-button-header">Get a Free Quote</a>
+                </div>
+            </nav>
+
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                <i data-lucide="menu"></i>
+                <i data-lucide="x" style="display: none;"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav">
+             <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+             <div class="header-actions">
+                 <a href="index.html#contact" class="cta-button-header">Get a Free Quote</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Packages Section -->
+        <section id="packages" class="packages-section">
+            <div class="container text-center">
+                <h2>Our Website Packages</h2>
+                <p class="subtitle">Find the perfect foundation for your project. Every package is fully customizable to meet your specific goals. Contact us for a detailed quote.</p>
+                <div class="pricing-grid">
+                    <!-- Starter Launchpad -->
+                    <div class="pricing-card">
+                        <h3>Starter Launchpad</h3>
+                        <p class="best-for">For new businesses needing a credible and professional online presence.</p>
+                        <ul class="features-list">
+                            <li><i data-lucide="check"></i>Up to 5 Custom-Designed Pages</li>
+                            <li><i data-lucide="check"></i>Mobile-Responsive Design</li>
+                            <li><i data-lucide="check"></i>Basic SEO Foundations</li>
+                            <li><i data-lucide="check"></i>Strategy Session</li>
+                            <li><i data-lucide="check"></i>2 Rounds of Revisions</li>
+                            <li><i data-lucide="check"></i>14 Days Post-Launch Support</li>
+                        </ul>
+                        <a href="index.html#contact" class="cta-button-primary">Request a Quote</a>
+                    </div>
+                    <!-- Business Growth Engine -->
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>Business Growth Engine</h3>
+                        <p class="best-for">For established businesses aiming to generate leads, traffic, and engagement.</p>
+                        <ul class="features-list">
+                            <li><i data-lucide="check"></i>Up to 10 Custom-Designed Pages</li>
+                            <li><i data-lucide="check"></i>Mobile-Responsive Design</li>
+                            <li><i data-lucide="check"></i>Advanced SEO Foundations</li>
+                            <li><i data-lucide="check"></i>Blog / Portfolio Platform</li>
+                            <li><i data-lucide="check"></i>Strategy Session</li>
+                            <li><i data-lucide="check"></i>3 Rounds of Revisions</li>
+                            <li><i data-lucide="check"></i>Live Training Session</li>
+                            <li><i data-lucide="check"></i>30 Days Post-Launch Support</li>
+                        </ul>
+                        <a href="index.html#contact" class="cta-button-primary">Request a Quote</a>
+                    </div>
+                    <!-- Dynamic Pro -->
+                    <div class="pricing-card">
+                        <h3>Dynamic Pro</h3>
+                        <p class="best-for">For businesses needing e-commerce, booking systems, or other custom functionality.</p>
+                        <ul class="features-list">
+                            <li><i data-lucide="check"></i>Fully Custom Page Count</li>
+                            <li><i data-lucide="check"></i>Mobile-Responsive Design</li>
+                            <li><i data-lucide="check"></i>Advanced SEO Foundations</li>
+                            <li><i data-lucide="check"></i>Blog / Portfolio Platform</li>
+                            <li><i data-lucide="check"></i>E-commerce or Booking Ready</li>
+                            <li><i data-lucide="check"></i>Advanced Strategy Session</li>
+                            <li><i data-lucide="check"></i>Custom Revisions</li>
+                            <li><i data-lucide="check"></i>60 Days Premium Support</li>
+                        </ul>
+                        <a href="index.html#contact" class="cta-button-primary">Request a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">Catalyst <span>SoFlo</span></a>
+                    <p>High-performance web design for the South Florida business community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="index.html#work">Work</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:contact@catalystsoflo.com">contact@catalystsoflo.com</a></li>
+                        <li><a href="tel:555-123-4567">(555) 123-4567</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Catalyst SoFlo. All Rights Reserved. Web Design in South Florida.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIcon = menuToggle.querySelector('[data-lucide="menu"]');
+            const closeIcon = menuToggle.querySelector('[data-lucide="x"]');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    header.classList.toggle('nav-open');
+                    const isNavOpen = header.classList.contains('nav-open');
+                    menuIcon.style.display = isNavOpen ? 'none' : 'block';
+                    closeIcon.style.display = isNavOpen ? 'block' : 'none';
+                    document.body.classList.toggle('nav-open');
+                });
+            }
+
+            document.querySelectorAll('#mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (header.classList.contains('nav-open')) {
+                        header.classList.remove('nav-open');
+                        menuIcon.style.display = 'block';
+                        closeIcon.style.display = 'none';
+                         document.body.classList.remove('nav-open');
+                    }
+                });
+            });
+        });
+        
+        lucide.createIcons();
+    </script>
+</body>
+</html>

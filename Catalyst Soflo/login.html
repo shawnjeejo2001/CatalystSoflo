@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Catalyst SoFlo</title>
+    <!-- Note: This page should not be indexed by search engines -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>CS</text></svg>">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --color-primary: #0A2540;
+            --color-background: #F0F2F5;
+            --color-accent: #00C49A;
+            --color-text: #1D1D1F;
+            --color-text-light: #ffffff;
+            --border-radius: 8px;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Lato', sans-serif;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+        }
+        .login-container {
+            background-color: rgba(0,0,0,0.2);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-container h1 {
+            font-family: var(--font-heading);
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+        }
+        .login-container h1 span {
+            color: var(--color-accent);
+        }
+        #login-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 2px solid rgba(255,255,255,0.2);
+            background-color: rgba(255,255,255,0.1);
+            color: var(--color-text-light);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        .login-button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 196, 154, 0.3);
+        }
+        #error-message {
+            color: #ff8a8a;
+            margin-top: 1rem;
+            min-height: 1.5em; /* Reserve space to prevent layout shift */
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Catalyst <span>SoFlo</span></h1>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="login-button">Log In</button>
+            <p id="error-message"></p>
+        </form>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2IXOj29woi_eYBZEDaFYzxWQqflEacdY",
+            authDomain: "catalystsoflo-c850e.firebaseapp.com",
+            projectId: "catalystsoflo-c850e",
+            storageBucket: "catalystsoflo-c850e.appspot.com",
+            messagingSenderId: "16440382361",
+            appId: "1:16440382361:web:fd8b6ee2b8c5084f94f908",
+            measurementId: "G-ETDL4MY3WZ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const loginForm = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = loginForm.email.value;
+            const password = loginForm.password.value;
+
+            errorMessage.textContent = ''; // Clear previous errors
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in successfully
+                    window.location.href = 'dashboard.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    let friendlyMessage = 'An unknown error occurred. Please try again.';
+
+                    if (errorCode === 'auth/invalid-credential' || errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password' || errorCode === 'auth/invalid-password') {
+                        friendlyMessage = 'Error: Invalid email or password. Please double-check your credentials.';
+                    } else if (errorCode === 'auth/invalid-email') {
+                        friendlyMessage = 'Error: The email address is not valid.';
+                    }
+                    
+                    errorMessage.textContent = friendlyMessage;
+                    console.error("Login Error:", errorCode, error.message);
+                });
+        });
+    </script>
+
+</body>
+</html>
